@@ -1,0 +1,39 @@
+<snippet>
+	<content><![CDATA[
+class DSU
+{
+private:
+	vector<int> p;
+	vector<int> rank;
+public:
+	DSU(int n){
+		p.resize(n);
+		for (int i = 0; i < n; ++i)
+		{
+			p[i] = i;
+		}
+		rank.resize(n);
+	}
+
+	int Get(int x){
+		return p[x] = (p[x] == x ? x : this->Get(p[x]));
+	}
+
+	void Union(int u, int v){
+		u = this->Get(u), v = this->Get(v);
+		if(u == v) return;
+		if(this->rank[u] == this->rank[v]) rank[u]++;
+		if(this->rank[u] > this->rank[v]){
+			p[v] = u;
+		}
+		else p[u] = v;
+	}
+	// ~DSU();
+	
+};
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>Disjoint Set Union (DSU)</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[
+nxt.resize(8);
+nxt[0]={1,0}, nxt[1]={-1,0}, nxt[2]={0,1}, nxt[3]={0,-1};
+nxt[4]={1,1}, nxt[5]={-1,-1}, nxt[6]={1,-1}, nxt[7]={-1,1};
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>next_move.graph</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

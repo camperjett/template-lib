@@ -1,0 +1,34 @@
+<snippet>
+	<content><![CDATA[
+struct stack{
+    vl s, smin = {LLONG_MAX}, smax = {LLONG_MIN};
+    void push(ll x){
+        s.pb(x);
+        smin.pb(::min(x, smin.back()));
+        smax.pb(::max(x, smax.back()));
+    }
+    ll pop(){
+        ll res = s.back();
+        s.pop_back();
+        smin.pop_back();
+        smax.pop_back();
+        return res;
+    }
+    bool empty(){
+        return s.empty();
+    }
+    ll max(){
+        return smax.back();
+    }
+    ll min(){
+        return smin.back();
+    }
+};
+
+::stack s1;
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>min-max-stack</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

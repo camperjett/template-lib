@@ -1,0 +1,19 @@
+<snippet>
+	<content><![CDATA[
+vector<bool> p;
+void sieve(long long n){
+    p.resize(n, 1);
+    p[0] = 0, p[1] = 0;
+    for (long long i = 2; i*i <= n; ++i)
+    {
+        if(p[i] == 0) continue;
+        long long j = 2*i;
+        while(j<=n) p[j] = 0, j+=i;
+    }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>prime-sieve</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

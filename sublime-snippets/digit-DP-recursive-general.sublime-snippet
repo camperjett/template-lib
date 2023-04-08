@@ -1,0 +1,35 @@
+<snippet>
+	<content><![CDATA[
+int cache[20][2][5];
+int sz = 0;
+int x[20];
+
+int dp(int idx, int tight, int condition){
+    if(condition_rule) return 0;
+    if(idx == sz) return 1;
+    int& ans = cache[idx][tight][condition];
+    if(ans != -1) return ans;
+    ans = 0;
+    if(tight)
+        for (int dig = 0; dig <= x[idx]; ++dig)
+            ans += dp(idx+1, dig >= x[idx], condition_sth);
+    else
+        for (int dig = 0; dig <= 9; ++dig)
+            ans += dp(idx+1, 0, condition_sth);
+    return ans;
+}
+
+int f(int k){
+    memset(cache, -1, sizeof cache);
+    sz = 0;
+    while(k)
+        x[sz++] = k % 10, k /= 10;
+    reverse(x, x + sz);
+    return dp(0, 1, sth);
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>digit-DP-recursive-general</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

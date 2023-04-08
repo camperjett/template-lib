@@ -3,3 +3,4 @@
 # but do not ignore the .gitignore file
 !.gitignore
 !*.cpp
+!/sublime-snippets

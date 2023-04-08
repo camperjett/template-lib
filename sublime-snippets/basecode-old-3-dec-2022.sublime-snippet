@@ -1,0 +1,62 @@
+<snippet>
+	<content><![CDATA[
+//Om Namah Shiva
+#include <iostream>
+#include <vector>
+#include <fstream>
+#include <cmath>
+#include <string>
+#include <set>
+#include <map>
+#include <utility>
+#include <algorithm>
+#include <iomanip>
+#include <stack>
+#include <queue>
+#include <chrono>
+#include <unordered_set>
+#include <unordered_map>
+#include <random>
+#include <bitset>
+#include <climits>
+#include <sstream>
+using namespace std;
+ 
+typedef long long           ll;
+#define all(x)              (x).begin(), (x).end()
+#define el                  '\n'
+#define pb                  push_back
+#define ff                  first
+#define ss                  second
+#define dbg(x)              cout << #x << " is " << x << el;
+/*----------------MY MACROS----------------*/
+#define pii                 pair<int,int>
+#define vi                  vector<int>
+#define vl                  vector<ll>
+#define vpii                vector<pair<int,int>>
+template <typename A, typename B> ostream& operator<< (ostream &cout, pair<A, B> const &p) { return cout << "(" << p.first << ", " << p.second << ")"; }
+template <typename A, typename B> istream& operator>> (istream& cin, pair<A, B> &p) {cin >> p.first; return cin >> p.second;}
+template <typename A> ostream& operator<< (ostream &cout, vector<A> const &v) {cout << "["; for(int i = 0; i < int(v.size()); i++) {if (i) cout << ", "; cout << v[i];} return cout << "]";}
+template <typename A> istream& operator>> (istream& cin, vector<A> &x){for(int i = 0; i < int(x.size())-1; i++) cin >> x[i]; return cin >> x[x.size()-1];}
+template <typename A, typename B> A amax (A &a, B b){ if (b > a) a = b ; return a; }
+template <typename A, typename B> A amin (A &a, B b){ if (b < a) a = b ; return a; }
+
+int solver(){
+    
+    return 0;
+}
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
+    ${0}
+    return 0;
+  	
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>basecode</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

@@ -1,0 +1,40 @@
+<snippet>
+	<content><![CDATA[
+/*Matrix functions*/
+// identity matrix of dimensions y X y
+vector<vector<int>> mEye(int y){
+    vector<vector<int>> res(y, vi(y, 0));
+    for (int i = 0; i < y; ++i)
+    {
+        res[i][i] = 1;
+    }
+    return res;
+}
+// gives a X b. a and b must be of same dimensions
+vector<vector<int>> mMult(vector<vector<int>>& a, vector<vector<int>>& b){
+    int y = a.size();
+    vector<vector<int>> res(y, vi(y, 0));
+    for (int i = 0; i < y; ++i)
+        for (int j = 0; j < y; ++j)
+            for (int k = 0; k < y; ++k)
+                res[i][j] += a[i][k] * b[k][j];
+    return res;
+}
+// matrix m raised to power y (m ^ (y))
+vector<vector<int>> mPower(vector<vector<int>> m, int y){
+    vector<vector<int>> res = mEye(y);
+    while(y){
+    // O(log[y])
+        if(y % 2) res = mMult(res, m);
+        y /= 2;
+        m = mMult(m, m);
+    }
+    return res;
+}
+/*Matrix functions END*/
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>Matrix_functions</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

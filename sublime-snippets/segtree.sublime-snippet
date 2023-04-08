@@ -1,0 +1,64 @@
+<snippet>
+	<content><![CDATA[
+class segtree
+{
+private:
+	vector<int> a;
+	int size;
+public:
+	segtree(int x){
+		size = 1;
+		while(size < x) size *= 2;
+		a.assign(2 * size, 0);
+	}
+	// here range is [l, r)
+	// why open end at r? because operations become easy... like in case of [0, 4)...
+	// m -> 2, which is itself making two partitions [0, 2) and [2, 4)
+	void set(int i, int v, int x, int l, int r){
+		if(l+1 == r) {
+			a[x] = v; 
+			return;
+		}
+		int m = (l + r) / 2;
+		if(i < m) set(i, v, 2*x+1, l, m);
+		else set(i, v, 2*x+2, m, r);
+		a[x] = a[2*x+1] + a[2*x+2];
+	}
+	void set(int i, int v){
+		set(i, v, 0, 0, size);
+	}
+	int sum(int l, int r, int i, int lx, int rx){
+		if(lx >= l && rx <= r) return a[i];
+		if(l >= rx || r <= lx) return 0;
+		int mx = (lx + rx) / 2;
+		return sum(l, r, 2*i+1, lx, mx) + sum(l, r, 2*i+2, mx, rx);
+	}
+	int sum(int l, int r){
+		return sum(l, r, 0, 0, size);
+	}
+	void build(vector<int>& b, int i, int lx, int rx){
+		if(lx + 1 == rx && lx < b.size()){
+			a[i] = b[lx];
+			return;
+		}
+		int mx = (lx + rx) / 2;
+		build(b, 2*i+1, lx, mx);
+		build(b, 2*i+2, mx, rx);
+		a[i] = a[2*i+1] + a[2*i+2];
+	}
+	void build(vector<int>& b){
+		b.resize(size);
+		build(b, 0, 0, size);
+	}
+	void print(){
+		for(auto& I: a) cout<<I<<" ";
+			cout<<el;
+		return;
+	}
+};
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>segtree</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

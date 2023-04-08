@@ -1,0 +1,16 @@
+<snippet>
+	<content><![CDATA[
+vector<int> fact;
+void factorial(int n, int p){
+    fact.resize(n, 1);
+    for (int i = 1; i < n; ++i)
+    {
+        fact[i] = (fact[i] * fact[i-1]) % p;
+    }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>factorial-array</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

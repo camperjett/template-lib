@@ -1,0 +1,17 @@
+<snippet>
+	<content><![CDATA[
+auto dfs = [&](int c, int p, auto&& dfs) -> void{
+
+    for(auto& I: ad[c]){
+    	if(I == p) continue;
+        dfs(I, c, dfs);
+    }
+};
+
+dfs(0, -1, dfs);
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>dfs-lambda-function</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

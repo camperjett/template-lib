@@ -1,0 +1,32 @@
+<snippet>
+	<content><![CDATA[
+vector<int> in(n, INF), low(n, INF);
+auto dfs = [&](int c, int p, int t, auto&& dfs) -> void{
+    in[c] = t;
+    low[c] = in[c];
+    for(auto& I: ad[c]){
+        // skip parent
+        if(I == p) continue;
+        // ancestor seen
+        if(in[I] != INF) {
+            amin(low[c], low[I]);
+            continue;
+        }
+        // run for decendent
+        dfs(I, c, t+1, dfs);
+        // decendent updates
+        amin(low[c], low[I]);
+        // condition check
+        if(in[c] < low[I]){
+            cout<< "e: "<<c+1<<" "<<I+1<<el;
+        }
+    }
+};
+
+dfs(0, -1, 0, dfs);
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>dfs-bridge-intime-low</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

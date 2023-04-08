@@ -1,3 +1,5 @@
+<snippet>
+	<content><![CDATA[
 //Om Namah Shiva
 #include <bits/stdc++.h>
 using namespace std;
@@ -19,61 +21,18 @@ template <typename A> istream& operator>> (istream& cin, vector<A> &x){for(int i
 template <typename A, typename B> A amax (A &a, B b){ if (b > a) a = b ; return a; }
 template <typename A, typename B> A amin (A &a, B b){ if (b < a) a = b ; return a; }
 
+int JADY(){
+    
+    return 0;
+}
 signed main()
 {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
 
-    int n, m; cin>>n>>m;
-    vector<vector<int>> ad(n);
-    vector<vector<int>> tad(n);
-    for (int i = 0; i < m; ++i)
-    {
-        int u, v; cin>>u>>v; u--, v--;
-        ad[u].pb(v);
-        tad[v].pb(u);
-    }
-
-    vector<pii> out(n, {0, 0});
-    int t = 0;
-    auto dfs = [&](int c, int p, auto&& dfs) -> void{
-        out[c].ff = ++t; // if > 0, then in-time i.e., visited
-        for(auto& I: ad[c]){
-            if(I == p) continue;
-            if(out[I].ff) continue;
-            dfs(I, c, dfs);
-        }
-        out[c] = {-(++t), c}; // if < 0, then out-time i.e., call-stack pops it
-    };
-    // dbg(ad)
-    for (int i = 0; i < n; ++i)
-    {
-        if(out[i].ff) continue;
-        dfs(i, -1, dfs);
-    }
-    sort(all(out));
-    
-    vector<int> v(n);
-    auto dfs2 = [&](int c, int p, auto&& dfs2) -> void{
-        if(p == -1) cout<<"scc: ";
-        cout<<c+1<<" ";
-        v[c] = 1;
-        for(auto& I: tad[c]){
-            if(I == p || v[I]) continue;
-            dfs2(I, c, dfs2);
-        }
-        if(p == -1) cout<<el;
-    };
-    
-
-    for(auto&[x, y]: out){
-        if(v[y]) continue;
-        dfs2(y, -1, dfs2);
-    }
-
-    
+    ${0}
     return 0;
-      
+  	
 }
 
 /**
@@ -89,3 +48,9 @@ signed main()
  * -    use (ans + MOD) % MOD and not ans % MOD
  * -    never use LLONG_MAX or LLONG_MIN : USE 1e18 or -1e18
  * */
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>basecode</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
